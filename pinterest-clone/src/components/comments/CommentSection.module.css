@@ -1,0 +1,193 @@
+/* src/components/comments/CommentSection.module.css */
+
+.root {
+  border-top: 1px solid #f0ede8;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.heading {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b6259;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin: 0;
+}
+
+/* ── List ────────────────────────────────────────────────────── */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 280px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #e8e2d9 transparent;
+}
+
+.loadingText,
+.emptyText {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: #b8b0a7;
+  text-align: center;
+  padding: 8px 0;
+}
+
+/* ── Individual comment ──────────────────────────────────────── */
+.comment {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  position: relative;
+}
+
+.comment:hover .deleteBtn {
+  opacity: 1;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #efebe4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b6259;
+  flex-shrink: 0;
+}
+
+.commentBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.commentMeta {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.commentAuthor {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1614;
+}
+
+.commentTime {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  color: #b8b0a7;
+}
+
+.commentText {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: #3d3530;
+  line-height: 1.5;
+  margin: 0;
+  word-break: break-word;
+}
+
+.deleteBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #c5bdb3;
+  padding: 4px;
+  opacity: 0;
+  transition:
+    opacity 0.15s,
+    color 0.15s;
+  flex-shrink: 0;
+}
+
+.deleteBtn:hover {
+  color: #e63946;
+}
+
+/* ── Input form ──────────────────────────────────────────────── */
+.form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.inputAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #efebe4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b6259;
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  padding: 9px 14px;
+  background: #f5f2ec;
+  border: 1.5px solid transparent;
+  border-radius: 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: #1a1614;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+
+.input::placeholder {
+  color: #c5bdb3;
+}
+.input:focus {
+  background: #fff;
+  border-color: #e63946;
+}
+
+.postBtn {
+  padding: 8px 16px;
+  background: #e63946;
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.postBtn:hover:not(:disabled) {
+  background: #cc2f3b;
+}
+.postBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.signInPrompt {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: #b8b0a7;
+  text-align: center;
+  padding: 8px 0;
+}

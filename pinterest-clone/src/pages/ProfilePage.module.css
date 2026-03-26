@@ -1,0 +1,231 @@
+/* src/pages/ProfilePage.module.css */
+
+.root {
+  min-height: 100vh;
+  background: #faf7f2;
+}
+
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 16px 60px;
+}
+
+/* ── Header ──────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 28px;
+  text-align: center;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #efebe4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: #6b6259;
+  margin-bottom: 4px;
+}
+
+.displayName {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: #1a1614;
+  margin: 0;
+}
+
+.handle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: #9e9589;
+  margin: 0;
+}
+
+.bio {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: #6b6259;
+  max-width: 400px;
+  line-height: 1.6;
+  margin: 4px 0 0;
+}
+
+.stats {
+  display: flex;
+  gap: 24px;
+  margin: 4px 0;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.statNum {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #1a1614;
+}
+
+.statLabel {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: #9e9589;
+}
+
+.editBtn,
+.followBtn {
+  padding: 9px 24px;
+  border-radius: 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s;
+  margin-top: 4px;
+}
+
+.editBtn {
+  background: none;
+  border: 1.5px solid #1a1614;
+  color: #1a1614;
+}
+
+.editBtn:hover {
+  background: #1a1614;
+  color: #faf7f2;
+}
+
+.followBtn {
+  background: #e63946;
+  border: none;
+  color: #fff;
+}
+
+.followBtn:hover {
+  background: #cc2f3b;
+}
+
+/* ── Edit form ───────────────────────────────────────────────── */
+.editForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 360px;
+  margin-top: 4px;
+}
+
+.editInput {
+  padding: 10px 14px;
+  background: #fff;
+  border: 1.5px solid #e8e2d9;
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: #1a1614;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.editInput:focus {
+  border-color: #e63946;
+}
+.editTextarea {
+  resize: vertical;
+}
+
+.editActions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.cancelEditBtn {
+  padding: 8px 18px;
+  background: none;
+  border: 1.5px solid #e8e2d9;
+  border-radius: 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: #6b6259;
+  cursor: pointer;
+}
+
+.saveEditBtn {
+  padding: 8px 18px;
+  background: #e63946;
+  border: none;
+  border-radius: 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ── Tabs ────────────────────────────────────────────────────── */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #ede8e0;
+  padding-bottom: 0;
+}
+
+.tab {
+  padding: 10px 20px 14px;
+  background: none;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #9e9589;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.tab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #e63946;
+  transform: scaleX(0);
+  transition: transform 0.2s;
+}
+
+.tabActive {
+  color: #1a1614;
+}
+.tabActive::after {
+  transform: scaleX(1);
+}
+
+.notFound {
+  text-align: center;
+  padding: 80px;
+  font-family: 'DM Sans', sans-serif;
+  color: #9e9589;
+}

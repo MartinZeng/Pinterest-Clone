@@ -1,0 +1,15 @@
+/* src/components/ui/PageTransition.module.css */
+
+.page {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease;
+  min-height: 100vh;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

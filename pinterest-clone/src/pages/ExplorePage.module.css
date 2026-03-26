@@ -1,0 +1,82 @@
+/* src/pages/ExplorePage.module.css */
+.root {
+  min-height: 100vh;
+  background: #faf7f2;
+}
+.main {
+  padding-top: 0;
+}
+
+.hero {
+  padding: 36px 20px 20px;
+  text-align: center;
+}
+.heroTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 600;
+  color: #1a1614;
+  margin: 0 0 6px;
+  letter-spacing: -1px;
+}
+.heroSub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  color: #9e9589;
+  margin: 0;
+}
+
+.tabsWrap {
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0 16px 16px;
+  -webkit-overflow-scrolling: touch;
+}
+.tabsWrap::-webkit-scrollbar {
+  display: none;
+}
+.tabs {
+  display: flex;
+  gap: 6px;
+  width: max-content;
+  margin: 0 auto;
+}
+
+.tab {
+  padding: 9px 18px;
+  border-radius: 20px;
+  border: 1.5px solid #e8e2d9;
+  background: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b6259;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+.tab:hover {
+  border-color: #c5bdb3;
+  color: #1a1614;
+}
+.tabActive {
+  background: #1a1614;
+  border-color: #1a1614;
+  color: #faf7f2;
+}
+.tabActive:hover {
+  background: #333;
+  border-color: #333;
+}
+
+.statsBar {
+  padding: 0 20px 12px;
+}
+.statsText {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: #b8b0a7;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}

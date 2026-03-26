@@ -1,0 +1,90 @@
+/* src/components/feed/MasonryGrid.module.css */
+
+.wrapper {
+  width: 100%;
+}
+
+/* CSS columns masonry — no JS layout needed */
+.grid {
+  column-count: 2;
+  column-gap: 16px;
+  padding: 0 16px;
+}
+
+@media (min-width: 540px) {
+  .grid {
+    column-count: 3;
+  }
+}
+@media (min-width: 768px) {
+  .grid {
+    column-count: 4;
+  }
+}
+@media (min-width: 1024px) {
+  .grid {
+    column-count: 5;
+  }
+}
+@media (min-width: 1280px) {
+  .grid {
+    column-count: 6;
+  }
+}
+@media (min-width: 1600px) {
+  .grid {
+    column-count: 7;
+  }
+}
+
+/* ── Sentinel ────────────────────────────────────────────────── */
+.sentinel {
+  height: 1px;
+  width: 100%;
+}
+
+/* ── Skeleton ────────────────────────────────────────────────── */
+.skeleton {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  border-radius: 16px;
+  background: linear-gradient(90deg, #ede8e0 0%, #f5f2ec 50%, #ede8e0 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ── Empty state ─────────────────────────────────────────────── */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  gap: 16px;
+  color: #9e9589;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  text-align: center;
+}
+
+.emptyIcon {
+  font-size: 48px;
+}
+
+/* ── End message ─────────────────────────────────────────────── */
+.endMessage {
+  text-align: center;
+  padding: 32px;
+  color: #b8b0a7;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+}

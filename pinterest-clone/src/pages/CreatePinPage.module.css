@@ -1,0 +1,336 @@
+/* src/pages/CreatePinPage.module.css */
+
+.root {
+  min-height: 100vh;
+  background: #faf7f2;
+}
+
+.main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+}
+
+.heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: #1a1614;
+  margin: 0 0 28px;
+}
+
+/* ── Two-column layout ───────────────────────────────────────── */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (max-width: 680px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Drop zone ───────────────────────────────────────────────── */
+.dropZone {
+  position: relative;
+  min-height: 380px;
+  border: 2px dashed #e8e2d9;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+  overflow: hidden;
+  background: #faf7f2;
+}
+
+.dropZone:hover {
+  border-color: #c5bdb3;
+  background: #f5f2ec;
+}
+
+.dropZoneDragging {
+  border-color: #e63946;
+  background: #fef2f2;
+}
+
+.dropZoneHasImage {
+  border-style: solid;
+  border-color: transparent;
+  cursor: default;
+  min-height: unset;
+}
+
+.dropPrompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 32px;
+  text-align: center;
+}
+
+.dropIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #efebe4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8c8279;
+  margin-bottom: 4px;
+}
+
+.dropTitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a1614;
+  margin: 0;
+}
+
+.dropSub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: #9e9589;
+  margin: 0;
+}
+
+.preview {
+  width: 100%;
+  border-radius: 18px;
+  display: block;
+}
+
+.replaceBtn {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.92);
+  border: none;
+  border-radius: 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1614;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+  transition: background 0.15s;
+}
+
+.replaceBtn:hover {
+  background: #fff;
+}
+
+.fileInput {
+  display: none;
+}
+
+/* ── Form ────────────────────────────────────────────────────── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b6259;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.labelHint {
+  font-size: 11px;
+  color: #b8b0a7;
+  text-transform: none;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.input {
+  padding: 11px 14px;
+  background: #faf7f2;
+  border: 1.5px solid #e8e2d9;
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: #1a1614;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.input::placeholder {
+  color: #c5bdb3;
+}
+.input:focus {
+  border-color: #e63946;
+  background: #fff;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.5;
+}
+
+/* ── Tag field ───────────────────────────────────────────────── */
+.tagField {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 48px;
+  cursor: text;
+  padding: 8px 12px;
+}
+
+.tagPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px 3px 10px;
+  background: #efebe4;
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: #1a1614;
+}
+
+.tagRemove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #9e9589;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.tagInput {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: #1a1614;
+  min-width: 120px;
+  flex: 1;
+}
+
+.tagInput::placeholder {
+  color: #c5bdb3;
+}
+
+/* ── Error ───────────────────────────────────────────────────── */
+.error {
+  padding: 10px 14px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: #b91c1c;
+}
+
+/* ── Form actions ────────────────────────────────────────────── */
+.formActions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+.cancelBtn {
+  padding: 11px 22px;
+  background: none;
+  border: 1.5px solid #e8e2d9;
+  border-radius: 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b6259;
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    color 0.15s;
+}
+
+.cancelBtn:hover {
+  border-color: #c5bdb3;
+  color: #1a1614;
+}
+
+.publishBtn {
+  padding: 11px 28px;
+  background: #e63946;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  transition:
+    background 0.15s,
+    transform 0.15s;
+}
+
+.publishBtn:hover:not(:disabled) {
+  background: #cc2f3b;
+  transform: scale(1.02);
+}
+
+.publishBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

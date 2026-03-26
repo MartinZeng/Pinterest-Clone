@@ -1,0 +1,550 @@
+/* src/components/layout/Navbar.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500&display=swap');
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: #faf7f2;
+  border-bottom: 1px solid #ede8e0;
+  height: 64px;
+}
+
+/* ── Hamburger — mobile only ─────────────────────────────────── */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  background: #1a1614;
+  border-radius: 2px;
+  transition:
+    transform 0.2s,
+    opacity 0.2s;
+}
+
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+/* ── Logo ────────────────────────────────────────────────────── */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.logoText {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1614;
+  display: none;
+}
+
+@media (min-width: 480px) {
+  .logoText {
+    display: block;
+  }
+}
+
+/* ── Search ──────────────────────────────────────────────────── */
+.searchForm {
+  flex: 1;
+  max-width: 560px;
+}
+
+.searchWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 14px;
+  color: #9e9589;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 40px 10px 42px;
+  background: #efebe4;
+  border: 1.5px solid transparent;
+  border-radius: 24px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: #1a1614;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+
+.searchInput::placeholder {
+  color: #b8b0a7;
+}
+.searchInput:focus {
+  background: #fff;
+  border-color: #e63946;
+}
+.searchInput::-webkit-search-cancel-button {
+  display: none;
+}
+
+.clearBtn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #9e9589;
+  font-size: 11px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* ── Desktop actions — hidden on mobile ──────────────────────── */
+.actions {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  margin-left: auto; /* ← add this */
+}
+
+@media (min-width: 768px) {
+  .actions {
+    display: flex;
+  }
+}
+
+.createBtn {
+  padding: 9px 18px;
+  background: #1a1614;
+  color: #faf7f2;
+  border: none;
+  border-radius: 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background 0.15s,
+    transform 0.15s;
+}
+
+.createBtn:hover {
+  background: #333;
+  transform: scale(1.03);
+}
+
+.iconWrap {
+  position: relative;
+}
+
+.iconBtn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: #efebe4;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #1a1614;
+  transition: background 0.15s;
+}
+
+.iconBtn:hover {
+  background: #e5e0d8;
+}
+
+.badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: #e63946;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #faf7f2;
+}
+
+.avatarBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #e8e2d9;
+  background: #efebe4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b6259;
+  transition: border-color 0.15s;
+}
+
+.avatarBtn:hover {
+  border-color: #c5bdb3;
+}
+
+/* ── Dropdowns ───────────────────────────────────────────────── */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.14);
+  min-width: 240px;
+  padding: 8px;
+  z-index: 200;
+  animation: dropIn 0.15s ease;
+}
+
+.dropdownRight {
+  left: auto;
+  right: 0;
+}
+
+@keyframes dropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdownTitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #9e9589;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px 8px;
+}
+
+.notifItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  transition: background 0.15s;
+}
+
+.notifItem:hover {
+  background: #faf7f2;
+}
+
+.notifDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e63946;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.notifText {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: #1a1614;
+  line-height: 1.4;
+}
+
+.menuProfile {
+  padding: 8px 10px 4px;
+}
+
+.menuName {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1614;
+}
+
+.menuEmail {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: #9e9589;
+  margin-top: 2px;
+}
+
+.menuDivider {
+  border: none;
+  border-top: 1px solid #ede8e0;
+  margin: 6px 0;
+}
+
+.menuItem {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: #1a1614;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.menuItem:hover {
+  background: #faf7f2;
+}
+.menuItemDanger {
+  color: #e63946;
+}
+
+/* ── Mobile drawer backdrop ──────────────────────────────────── */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 299;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ── Slide-out drawer ────────────────────────────────────────── */
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 280px;
+  background: #faf7f2;
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 4px 0 32px rgba(0, 0, 0, 0.12);
+}
+
+.drawerOpen {
+  transform: translateX(0);
+}
+
+@media (min-width: 768px) {
+  .drawer,
+  .backdrop {
+    display: none !important;
+  }
+}
+
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 16px 16px;
+  border-bottom: 1px solid #ede8e0;
+}
+
+.drawerProfile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.drawerAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #efebe4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #6b6259;
+  flex-shrink: 0;
+}
+
+.drawerName {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1614;
+  margin: 0;
+}
+
+.drawerEmail {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: #9e9589;
+  margin: 2px 0 0;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.drawerClose {
+  width: 32px;
+  height: 32px;
+  background: #efebe4;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #1a1614;
+  flex-shrink: 0;
+}
+
+.drawerNav {
+  flex: 1;
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.drawerItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 12px;
+  background: none;
+  border: none;
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a1614;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s;
+}
+
+.drawerItem:hover {
+  background: #efebe4;
+}
+.drawerItem svg {
+  color: #6b6259;
+  flex-shrink: 0;
+}
+
+.drawerFooter {
+  padding: 16px;
+  border-top: 1px solid #ede8e0;
+}
+
+.drawerSignOut {
+  width: 100%;
+  padding: 11px;
+  background: none;
+  border: 1.5px solid #e8e2d9;
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #e63946;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.drawerSignOut:hover {
+  background: #fef2f2;
+}
+
+/* ── Nav links (desktop) ─────────────────────────────────────── */
+.navLinks {
+  display: none;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .navLinks {
+    display: flex;
+  }
+}
+
+.navLink {
+  padding: 8px 14px;
+  background: none;
+  border: none;
+  border-radius: 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b6259;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.navLink:hover {
+  background: #efebe4;
+  color: #1a1614;
+}
+.navLinkActive {
+  background: #efebe4;
+  color: #1a1614;
+}
+
+/* ── Notifications dropdown (wider than generic dropdown) ────── */
+.notifDropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 200;
+}
